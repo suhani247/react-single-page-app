@@ -6,9 +6,10 @@
   "scripts": {
     "start": "webpack-dev-server --env=dev --hot --inline",
     "build": "webpack --env=prod",
-    "deploy":"npm run build && git add . && git commit -m 'creating new build' && git push origin master && git branch -D gh-pages && git push origin --delete gh-pages && git checkout --orphan gh-pages && rm -r !dist && cd dist && mv *../ && cd .. && rimraf !dist && git add . && git commit -m 'deplying new build on gh-pages' && git push origin gh-pages && git checkout master"
+    "deploy-gh" : "gh-pages -d dist",
+    "deploy":"npm run build && npm run deploy-gh"
   },
-  "author": "Suhani Khurana",
+  "author": "Suhani Khurana ",
   "devDependencies": {
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
